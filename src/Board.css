@@ -1,0 +1,47 @@
+.board {
+    width: 450px;
+    height: 450px;
+    background: #752b2b;
+    margin: 30px auto;
+}
+
+.board .play-field {
+	width: 350px;
+    height: 350px;
+    background: #6f884d;
+    margin: auto;
+    position: relative;
+    top: 50px;
+}
+
+#hero {
+	position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #4f4b6d;
+    cursor: move;
+}
+
+.enemy {
+	position: absolute;
+	background: #5f5a30;
+	opacity: 0.6;
+	z-index: 1;
+}
+
+#enemy1 {
+	height: 20px;
+    width: 100px;
+}
+
+#enemy2 {
+	height: 100px;
+    width: 20px;
+}
+
+#enemy3 {
+    left: -50px;
+    top: 330px;
+    height: 70px;
+    width: 70px;
+}

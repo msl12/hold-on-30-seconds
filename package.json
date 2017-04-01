@@ -1,0 +1,19 @@
+{
+  "name": "hold-on-for-30-seconds",
+  "version": "1.0.0",
+  "description": "a funny game",
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msl12/hold-on-for-30-seconds"
+  },
+  "devDependencies": {
+    "react-scripts": "0.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start"
+  }
+}
