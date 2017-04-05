@@ -5,7 +5,7 @@ function Header(props) {
 	return (
 		<div className="header">
 			<div className="run-time">
-				{props.runTime} seconds
+				{props.seconds}:{props.milliseconds}0
 			</div>
 		</div>
     );

@@ -9,7 +9,8 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      runTime: 0,
+      seconds: 0,
+      milliseconds: 0,
       gameState: 0
     };
 
@@ -19,15 +20,23 @@ class Game extends React.Component {
   }
 
   watchCount() {
-    this.setState((prevState) => {
-      return {
-        runTime: prevState.runTime + 1
-      };
+    var milliseconds = this.state.milliseconds;
+    var seconds = this.state.seconds;
+
+    ++milliseconds;
+    if (milliseconds % 10 === 0) {
+      ++seconds;
+      milliseconds = 0;
+    }
+
+    this.setState({
+      seconds: seconds,
+      milliseconds: milliseconds
     });
   }
 
   startGame() {
-    TimeTick = setInterval(this.watchCount, 1000);
+    TimeTick = setInterval(this.watchCount, 100);
 
     this.setState({
       gameState: 1
@@ -35,18 +44,21 @@ class Game extends React.Component {
   }
 
   loseGame() {
-    alert("man, you had held on for " + this.state.runTime + "s.");
+    alert("man, you had held on for " + this.state.seconds + "." + this.state.milliseconds + "s.");
     clearInterval(TimeTick);
     this.setState({
       gameState: 0,
-      runTime: 0
+      seconds: 0,
+      milliseconds: 0
     });
   }
 
   render() {
     return (
       <div className="container">
-        <Header runTime={this.state.runTime} />
+        <Header
+          seconds={this.state.seconds}
+          milliseconds={this.state.milliseconds} />
         <Board
           startGame={this.startGame}
           gameState={this.state.gameState}

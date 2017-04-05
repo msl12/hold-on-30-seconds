@@ -86,10 +86,17 @@ class Board extends React.Component {
 
 	launchAttack(enemy_id) {
 		var enemy = document.getElementById(enemy_id);
-		var x = this.state[enemy_id + "X"], y = this.state[enemy_id + "Y"], directionX = 1, directionY = 1;
+		var x = this.state[enemy_id + "X"], y = this.state[enemy_id + "Y"], directionX = 1, directionY = 1, speed = 3;
+		var acceleration = 1;
 		enemy.timer = setInterval(() => {
-            x += 3 * directionX;
-            y += 3 * directionY;
+            x += speed * directionX;
+            y += speed * directionY;
+
+            // every 8 seconds faster.
+            ++acceleration;
+            if (acceleration % 267 === 0) {
+            	speed += 2;
+            }
 
             if (x > (400 - enemy.offsetWidth) || x < -50) {
             	directionX = -directionX;
